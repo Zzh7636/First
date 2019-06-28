@@ -76,8 +76,11 @@ export default {
               method:'post',
               data:this.form
           }).then(res => {
-            console.log(res);
               if(res.data.meta.status == 200){
+                
+                // 拿到token保存到本地localStorage
+                // console.log(res.data.data.token);
+                localStorage.setItem('token',res.data.data.token)
                 this.$router.push('/home')
               }
           });
